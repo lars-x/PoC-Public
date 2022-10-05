@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Inside</h1>
+
+    <h3>Calculate the area for a pie:</h3>
+    <label>Radius:</label>
+    <input name="txt_radius" type="text" id="txt_radius" />
+    <label>Angle [deg]:</label>
+    <input name="txt_angle" type="text" id="txt_angle" />
+    <button onclick="myFunction()">Calculate Area</button>
+    <label> Area:</label>
+    <input name="txt_area" type="text" id="txt_area" />
+
+    <script>
+
+        function myFunction() {
+            const radius = Number(document.getElementById("txt_radius").value);
+            const angle_deg = Number(document.getElementById("txt_angle").value);
+
+            const area = calc_pie_area(radius, angle_deg);
+
+            document.getElementById("txt_area").value = area.toString();
+        }
+
+        const deg2rad = Math.PI / 180.0;
+
+        function calc_pie_area(radius, angle_deg) {
+            const res = angle_deg * deg2rad * radius * radius;
+            return res;
+        }
+
+    </script>
+</body>
+
+</html>
